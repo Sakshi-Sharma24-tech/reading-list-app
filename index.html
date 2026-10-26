@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Reading List Application</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1>📚 Student Reading List</h1>
+      <p class="subtitle">Track your academic and leisure reading goals</p>
+    </header>
+
+    <!-- Summary Metrics -->
+    <section class="summary-section" aria-label="Reading Statistics">
+      <div class="metric-card">
+        <span class="metric-label">Total Books</span>
+        <span class="metric-value" id="totalCount">0</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Currently Reading</span>
+        <span class="metric-value" id="readingCount">0</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Finished</span>
+        <span class="metric-value" id="finishedCount">0</span>
+      </div>
+    </section>
+
+    <!-- Add Book Form -->
+    <section class="form-section">
+      <form id="bookForm">
+        <div class="form-group">
+          <input 
+            type="text" 
+            id="bookTitle" 
+            placeholder="Enter book title (max 60 characters)..." 
+            maxlength="60"
+            required
+          >
+        </div>
+        <div class="form-group">
+          <select id="bookStatus">
+            <option value="Want to Read">Want to Read</option>
+            <option value="Reading">Reading</option>
+            <option value="Finished">Finished</option>
+          </select>
+        </div>
+        <button type="submit" id="addBtn">Add Book</button>
+      </form>
+      <div id="formFeedback" class="feedback-msg" role="alert"></div>
+    </section>
+
+    <!-- Filter Controls -->
+    <section class="filter-section">
+      <span class="filter-label">Filter:</span>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="All">All</button>
+        <button class="filter-btn" data-filter="Want to Read">Want to Read</button>
+        <button class="filter-btn" data-filter="Reading">Reading</button>
+        <button class="filter-btn" data-filter="Finished">Finished</button>
+      </div>
+    </section>
+
+    <!-- Book Cards List -->
+    <main class="books-container">
+      <div id="emptyMessage" class="empty-state">
+        <p>Your reading list is empty. Add your first book.</p>
+      </div>
+      <div id="bookList" class="book-grid"></div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
